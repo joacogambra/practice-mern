@@ -3,6 +3,7 @@ import data from './data/events1'
 import NombreFoto from './components/NombreFoto';
 import CampoConArray from './components/CampoConArray';
 import Flechita from './components/Flechita';
+import AntSig from './components/AntSig';
 import { useState } from 'react';
 
 function App() {
@@ -37,16 +38,16 @@ function App() {
         {
         mostrarOcultar ?
         (<>
-        <Flechita  clases='arriba' onClick={hide}/>
+        <Flechita  clases='arriba' direction={hide}/>
         <CampoConArray text={data[numeroCambiar].description}/>
         </>) :
-        (<Flechita clases='abajo' onClick={hide}/>)
+        (<Flechita clases='abajo' direction={hide}/>)
         }
       </div>     
       
       <div className='flechas'> 
-        <Flechita clases='izquierda' izquierda={prev}/>
-        <Flechita  clases='derecha' derecha={next}/>
+        <AntSig verbo='anterior' direction={prev} estilo='direct'/>
+        <AntSig verbo='siguiente' direction={next} estilo='direct'/>
       </div> 
     </div>
   );
